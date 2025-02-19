@@ -34,14 +34,14 @@ function MoveApp() {
     }
 
     const moveRight =()=>{
-        setRightitem((prev)=>[...prev,...checkeditem])
+        setRightitem((prev)=>[...new Set([...prev,...checkeditem])])
         const notCheckeditem=leftitem.filter((num)=>!checkeditem.includes(num))
         setLeftitem(notCheckeditem);
         setCheckeditem([])
     }
 
     const moveLeft =()=>{
-        setLeftitem((prev)=>[...prev,...checkeditem])
+        setLeftitem((prev)=>[...new Set([...prev,...checkeditem])])
         const notCheckeditem=rightitem.filter((num)=>!checkeditem.includes(num))
         setRightitem(notCheckeditem);
         setCheckeditem([])
